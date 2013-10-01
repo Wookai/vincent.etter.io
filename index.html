@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 <link href="css/style.css" rel="stylesheet" media="screen">
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic|Roboto+Slab:700,400' rel='stylesheet' type='text/css'>
 
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
@@ -48,7 +49,7 @@
 			<div class="col-sm-8">
 				<h2 id="about">Hi, I'm Vincent!</h2>
 				<p>
-					I'm a PhD student at the <a target="_blank" href="http://lca.epfl.ch/">Laboratory for Communications and Applications</a>
+					I'm a PhD candidate at the <a target="_blank" href="http://lca.epfl.ch/">Laboratory for Communications and Applications</a>
 					at <a target="_blank" href="http://www.epfl.ch/">EPFL</a> in Lausanne, Switzerland. I am supervised by Prof.
 					<a target="_blank" href="http://icapeople.epfl.ch/grossglauser/">Matthias Grossglauser</a> and Prof.
 					<a target="_blank" href="http://people.epfl.ch/patrick.thiran">Patrick Thiran</a>.
@@ -72,11 +73,54 @@
 		<h3>2013</h3>
 		<ul class="publications-list">
 			<li>
+				Vincent Etter, Matthias Grossglauser, Patrick Thiran.
+				<strong>Launch Hard or Go Home! Predicting the Success of Kickstarter Campaigns</strong>.
+				<em>Proceedings of COSN'13: Conference on Online Social Networks</em>, 2013.
+				<div class="paper-actions">
+					<a href="publications/etter2013cosn.pdf" target="_blank" class="btn btn-default btn-xs">
+						<span class="glyphicon glyphicon-download"></span>
+						PDF
+					</a>
+					<a href="#" class="btn btn-default btn-xs btn-paper-action" data-target="bibtex">
+						<span class="glyphicon glyphicon-share"></span>
+						BibTeX
+					</a>
+					<a href="#" class="btn btn-default btn-xs btn-paper-action" data-target="abstract">
+						<span class="glyphicon glyphicon-eye-open"></span>
+						Abstract
+					</a>
+				</div>
+				<div class="bibtex" style="display: none;">
+					<pre>
+@InProceedings{etter2013cosn,
+	author = "Etter, Vincent and Grossglauser, Matthias and Thiran, Patrick",
+	title = "Launch Hard or Go Home! Predicting the Success of Kickstarter Campaigns",
+	booktitle = "Proceedings of COSN'13: Conference on Online Social Networks",
+	year = "2013",
+}
+</pre>
+				</div>
+				<div class="abstract" style="display: none;">
+					<blockquote>
+						<p>
+Crowdfunding websites such as Kickstarter are becoming increasingly popular, allowing project creators to raise hundreds of millions of dollars every year. However, only one out of two Kickstarter campaigns reaches its funding goal and is successful.
+It is therefore of prime importance, both for project creators and backers, to be able to know which campaigns are likely to succeed.
+</p><p>
+We propose a method for predicting the success of Kickstarter campaigns by using both direct information and social features.
+We introduce a first set of predictors that uses the time series of money pledges to classify campaigns as probable success or failure and a second set that uses information gathered from tweets and Kickstarter's projects/backers graph.
+</p><p>
+We show that even though the predictors that are based solely on the amount of money pledged reach a high accuracy, combining them with predictors using social features enables us to improve the performance significantly.
+In particular, only 4 hours after the launch of a campaign, the combined predictor reaches an accuracy of more than 76% (a relative improvement of 4%).
+		                 </p>
+	                 </blockquote>
+				</div>
+			</li>
+			<li>
 				Vincent Etter, Mohamed Kafsi, Ehsan Kazemi, Matthias Grossglauser, Patrick Thiran.
-				<strong>Where to go from here? Mobility prediction from instantaneous information</strong>.
+				<strong>Where to Go from Here? Mobility Prediction from Instantaneous Information</strong>.
 				<em>Pervasive and Mobile Computing</em>, 2013.
 				<div class="paper-actions">
-					<a href="publications/etter2013mobility.pdf" target="_blank" class="btn btn-default btn-xs">
+					<a href="publications/etter2013pervasive.pdf" target="_blank" class="btn btn-default btn-xs">
 						<span class="glyphicon glyphicon-download"></span>
 						PDF
 					</a>
@@ -95,9 +139,9 @@
 				</div>
 				<div class="bibtex" style="display: none;">
 					<pre>
-@article{Etter2013,
+@article{etter2013pervasive,
 	author = "Etter, Vincent and Kafsi, Mohamed and Kazemi, Ehsan and Grossglauser, Matthias and Thiran, Patrick",
-	title = "Where to go from here? Mobility prediction from instantaneous information",
+	title = "Where to Go from Here? Mobility Prediction from Instantaneous Information",
 	journal = "Pervasive and Mobile Computing",
 	year = "2013",
 }
@@ -182,7 +226,7 @@ predictor.
 				<strong>Use of Learned Dictionaries in Tomographic Reconstruction</strong>.
 				<em>SPIE Optical Engineering + Applications</em>, International Society for Optics and Photonics, 2011.
 				<div class="paper-actions">
-					<a href="publications/etter2012mdc.pdf" target="_blank" class="btn btn-default btn-xs">
+					<a href="publications/etter2011tomography.pdf" target="_blank" class="btn btn-default btn-xs">
 						<span class="glyphicon glyphicon-download"></span>
 						PDF
 					</a>
@@ -248,21 +292,18 @@ of these remains to be studied.
 				Station 14<br/>
 				CH-1015 Lausanne
 			</div>
-			<div class="col-sm-6">
+			<div class="col-sm-6 text-right">
 				<span class="glyphicon glyphicon-earphone"></span> +41 21 693 12 60<br />
 				<span class="glyphicon glyphicon-envelope"></span> <a href="mailto:vincent@etter.io">vincent@etter.io</a><br />
 				<span class="glyphicon glyphicon-globe"></span> <a href="http://vincent.etter.io">http://vincent.etter.io</a>
 			</div>
-		</div>		
-		<footer>
-			&copy; 2013 Vincent Etter
-		</footer>
+		</div>
 	</div>
 	</div>
     <div id="footer">
-      <div class="container">
-        <p class="text-muted credit">Example courtesy <a href="http://martinbean.co.uk">Martin Bean</a> and <a href="http://ryanfait.com/sticky-footer/">Ryan Fait</a>.</p>
-      </div>
+      <footer class="container">
+        <p class="text-muted credit">&copy; 2013 Vincent Etter</p>
+      </footer>
     </div>
 	<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
