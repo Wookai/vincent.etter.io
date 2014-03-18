@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="description" content="Vincent Etter is a PhD candidate at the Laboratory for Communications and Applications at EPFL in Lausanne, Switzerland. He is supervised by Prof. Matthias Grossglauser and Prof. Patrick Thiran.">
 <meta name="author" content="Vincent Etter">
-<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" media="screen">
 <link href="css/style.css" rel="stylesheet" media="screen">
 <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic|Roboto+Slab:700,400' rel='stylesheet' type='text/css'>
 
@@ -115,7 +115,7 @@
 				</div>
 				<div class="bibtex" style="display: none;">
 					<pre>
-@InProceedings{etter2013cosn,
+@inproceedings{etter2013cosn,
 	author = "Etter, Vincent and Grossglauser, Matthias and Thiran, Patrick",
 	title = "Launch Hard or Go Home! Predicting the Success of Kickstarter Campaigns",
 	booktitle = "Proceedings of the first ACM conference on Online Social Networks",
@@ -167,9 +167,9 @@ In particular, only 4 hours after the launch of a campaign, the combined predict
 	author = "Etter, Vincent and Kafsi, Mohamed and Kazemi, Ehsan and Grossglauser, Matthias and Thiran, Patrick",
 	title = "Where to Go from Here? Mobility Prediction from Instantaneous Information",
 	journal = "Pervasive and Mobile Computing",
-    volume = "9",
-    number = "6",
-    pages = "784 - 797",
+	volume = "9",
+	number = "6",
+	pages = "784--797",
 	year = "2013",
 }
 </pre>
@@ -216,11 +216,11 @@ diversity, leading to relative improvements of up to 4%.
 				</div>
 				<div class="bibtex" style="display: none;">
 					<pre>
-@InProceedings{etter2012mdc,
-	title={Been there, done that: What your mobility traces reveal about your behavior},
-	author={Etter, Vincent and Kafsi, Mohamed and Kazemi, Ehsan},
-	booktitle={Procedings of Mobile Data Challenge by Nokia Workshop at the Tenth International Conference on Pervasive Computing},
-	year={2012}
+@inproceedings{etter2012mdc,
+	title="Been There, Done That: What Your Mobility Traces Reveal about Your Behavior",
+	author="Etter, Vincent and Kafsi, Mohamed and Kazemi, Ehsan",
+	booktitle="Procedings of Mobile Data Challenge by Nokia Workshop at the Tenth International Conference on Pervasive Computing",
+	year="2012"
 }
 </pre>
 				</div>
@@ -272,13 +272,13 @@ predictor.
 				</div>
 				<div class="bibtex" style="display: none;">
 					<pre>
-@InProceeding{etter2011tomography,
-	title={Use of learned dictionaries in tomographic reconstruction},
-	author={Etter, Vincent and Jovanovic, Ivana and Vetterli, Martin},
-	booktitle={SPIE Optical Engineering+ Applications},
-	pages={81381C--81381C},
-	year={2011},
-	organization={International Society for Optics and Photonics}
+@inproceedings{etter2011tomography,
+	title="Use of Learned Dictionaries in Tomographic Reconstruction",
+	author="Etter, Vincent and Jovanovic, Ivana and Vetterli, Martin",
+	booktitle="SPIE Optical Engineering+ Applications",
+	pages="81381C--81381C",
+	year="2011",
+	organization="International Society for Optics and Photonics",
 }
 </pre>
 				</div>
@@ -332,11 +332,11 @@ of these remains to be studied.
         <p class="text-muted credit">&copy; 2013 Vincent Etter</p>
       </footer>
     </div>
-	<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
 		var headerHeight = -1;
-		var navOffset = 70;
+		var navOffset = 60;
 		var targetScroll = 30;
 		
 		jQuery(window).scroll(
@@ -345,30 +345,37 @@ of these remains to be studied.
 				var currentScroll = $('html') .scrollTop() || $('body').scrollTop();
 
 				var isFixed = currentScroll >= targetScroll;
-				if (headerHeight == -1)
+				if (headerHeight == -1) {
 					headerHeight = $('#top').outerHeight() + targetScroll;
+				}
 				
-				if (isFixed)
+				if (isFixed) {
 					$('#top').css({ 'height': headerHeight });
-				else
+				}
+				else {
 					$('#top').css({ 'height':'auto' });
+				}
 
 				styledDiv.toggleClass('navbar-fixed-top', isFixed);
 				$('#innerNav').toggleClass('container', isFixed);
 				$('#top').toggleClass('container', !isFixed);
 			});
+
 		jQuery(function() {
 			$('#nav').bind('click', 'ul li a', function(event) {
 			    event.preventDefault();
 			    var offset = $(event.target.hash).offset();
-			    if (history.pushstate)
+			    if (history.pushstate) {
 			    	history.pushstate({}, "", event.target.hash);
+			    }
 			    $('html, body').animate({
 			    	scrollTop: offset.top - navOffset
 			    }, 200, 'swing');
 		    });
-			var scrollspyOffset = ($(window).width() >= 768) ? 80 : 60
+
+			var scrollspyOffset = ($(window).width() >= 768) ? 65 : 60
 			$('body').scrollspy({ target: '#nav', offset: scrollspyOffset });
+			
 			$('.btn-paper-action').click(function(e) {
 				e.preventDefault();
 				var target = $(this).attr('data-target');
