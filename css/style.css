@@ -42,6 +42,16 @@ h2:first-child {
 	}	
 }
 
+li.award {
+	list-style-type: none;
+}
+
+li.award > .glyphicon {
+	margin-left: -20px;
+	margin-right: 3px;
+	cursor: help;
+}
+
 #footer {
 	padding-top: 15px;
 }
