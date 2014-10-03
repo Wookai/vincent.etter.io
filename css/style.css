@@ -23,6 +23,10 @@ h1, h2, h3, h4, h5, h6 {
 	margin-top: 30px;
 }
 
+h2 {
+	margin-top: 40px;
+}
+
 h2:first-child {
 	margin-top: 0;
 }
@@ -40,16 +44,6 @@ h2:first-child {
 	#top.container {
 		margin-top: 15px;
 	}	
-}
-
-li.award {
-	list-style-type: none;
-}
-
-li.award > .glyphicon {
-	margin-left: -20px;
-	margin-right: 3px;
-	cursor: help;
 }
 
 #footer {
