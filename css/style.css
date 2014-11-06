@@ -31,6 +31,11 @@ h2:first-child {
 	margin-top: 0;
 }
 
+.award {
+	color: #4f9a4f;
+	font-weight: bold;
+}
+
 .paper-actions {
 	margin-top: 8px;
 	margin-bottom: 12px;
