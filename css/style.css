@@ -51,6 +51,28 @@ h2:first-child {
 	}	
 }
 
+.press {
+	margin: 0;
+	margin-top: 10px;
+	padding: 0;
+}
+
+.press li {
+	list-style: none;
+	display: block;
+	float: left;
+	margin-right: 20px;
+	margin-bottom: 10px;
+	padding: 0;
+	height: 50px;
+}
+
+.press li img {
+	background-color: white;
+	max-height: 50px;
+	max-width: 160px;
+}
+
 #footer {
 	padding-top: 15px;
 }
