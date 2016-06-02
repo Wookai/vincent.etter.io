@@ -54,11 +54,11 @@
 			<div class="col-sm-8">
 				<h2 id="about">Hi, I'm Vincent!</h2>
 				<p>
-					I'm a PhD candidate at the <a target="_blank" href="http://lca.epfl.ch/">Laboratory for Communications and Applications</a>
-					at <a target="_blank" href="http://www.epfl.ch/">EPFL</a> in Lausanne, Switzerland. I am supervised by Prof.
+					I'm an applied researcher at Microsoft.
+					Before that, I did a PhD at the <a target="_blank" href="http://lca.epfl.ch/">Laboratory for Communications and Applications</a>
+					at <a target="_blank" href="http://www.epfl.ch/">EPFL</a> in Lausanne, Switzerland. I was supervised by Prof.
 					<a target="_blank" href="http://icapeople.epfl.ch/grossglauser/">Matthias Grossglauser</a> and Prof.
 					<a target="_blank" href="http://people.epfl.ch/patrick.thiran">Patrick Thiran</a>.
-					I plan on graduating by the end of 2015, after which I expect to join <span class="text-info">Microsoft Research</span>.
 				</p>
 				<p>
 					I am interested in <span class="text-info">Machine Learning</span> and
@@ -66,7 +66,7 @@
 					I built <a href="http://sidekick.epfl.ch" target="_blank">Sidekick</a> and <a href="http://www.predikon.ch" target="_blank">Predikon</a> to make some of my results available to the public.
 				</p>
 				<p>
-					Recently, I was an intern at the <a target="_blank" href="http://research.microsoft.com/en-us/groups/mldept/">Machine Learning Group</a> of
+					During my PhD, I was an intern at the <a target="_blank" href="http://research.microsoft.com/en-us/groups/mldept/">Machine Learning Group</a> of
 					<a target="_blank" href="http://research.microsoft.com/en-us/labs/redmond/">Microsoft Research</a> in Redmond, WA.
 					I also did two internships at the
 					<a target="_blank" href="http://www.nec-labs.com/research/machine/ml_website/index.php">Machine Learning Department</a>
@@ -75,6 +75,75 @@
 			</div>
 		</div>
 		<h2 id="publications">Publications</h2>
+		<h3>2015</h3>
+		<ul class="publications-list">
+			<li>
+				Vincent Etter.
+				<strong>Combine and Conquer: Mining Social Systems for Prediction</strong>.
+				<em>EPFL</em>, 2015.
+				<div class="paper-actions">
+					<a href="publications/etter2015phd.pdf" target="_blank" class="btn btn-default btn-xs">
+						<span class="glyphicon glyphicon-download"></span>
+						PDF
+					</a>
+    				<a href="#" class="btn btn-default btn-xs btn-paper-action" data-target="bibtex">
+						<span class="glyphicon glyphicon-share"></span>
+						BibTeX
+					</a>
+					<a href="#" class="btn btn-default btn-xs btn-paper-action" data-target="abstract">
+						<span class="glyphicon glyphicon-eye-open"></span>
+						Abstract
+					</a>
+					<a href="https://infoscience.epfl.ch/record/214549" class="btn btn-default btn-xs" target="_blank">
+						<span class="glyphicon glyphicon-globe"></span>
+						Publisher's website
+					</a>
+				</div>
+				<div class="bibtex" style="display: none;">
+					<pre>
+@phdthesis{etter2015phd,
+	author = "Etter, Vincent",
+	title = "Combine and Conquer: Mining Social Systems for Prediction",
+	school = "EPFL",
+	year = "2015",
+}
+</pre>
+				</div>
+				<div class="abstract" style="display: none;">
+					<blockquote>
+						<p>
+In this thesis, we explore the application of data mining and machine learning techniques to several practical problems.
+These problems have roots in various fields such as social science, economics, and political science.
+We show that computer science techniques enable us to bring significant contributions to solving them.
+Moreover, we show that combining several models or datasets related to the problem we are trying to solve is key to the quality of the solution we find.
+</p><p>
+The first application we consider is human mobility prediction.
+We describe our winning contribution to the Nokia Mobile Data Challenge, in which we predict the next location a user will visit based on his history and the current context.
+We first highlight some data characteristics that contribute to the difficulty of the task, such as sparsity and non-stationarity.
+Then, we present three families of models and observe that, even though their average accuracies are similar, their performances vary significantly across users.
+To take advantage of this diversity, we introduce several strategies to combine models, and show that the combinations outperform any individual predictor.
+</p><p>
+The second application we examine is predicting the success of crowdfunding campaigns.
+We collected data on Kickstarter (one of the most popular crowdfunding platforms) in order to predict whether a campaign will reach its funding goal or not.
+We show that we obtain good performances by simply using information about money, but that combining this information with social features extracted from Kickstarter's social graph and Twitter improves early predictions.
+In particular, predictions made a few hours after the beginning of a campaign are improved by 4%, to reach an accuracy of 76%.
+</p><p>
+Then, we move to the realms of politics, and first investigate the ideologies of politicians.
+Using their opinion on several aspects of politics, gathered on a voting advice application (VAA), we show that the themes that divide politicians the most are the ones that we usually associate with left-wing/right-wing and liberal/conservative, thus validating the simplified two-dimensional view of the political system that many people use.
+We bring attention to the potentially malicious uses of VAAs by creating a fake candidate profile that is able to gather twice as many voting recommendations as any other.
+To counter this, we demonstrate that we are able to monitor politicians after they were elected, and potentially detect changes of opinion, by combining the data extracted from the VAA with the votes that they cast at the Parliament.
+</p><p>
+Finally, we study the outcome of issue votes.
+We first show that simply considering vote results at a fine geographical level is sufficient to highlight characteristic geographical voting patterns across a country, and their evolution over time.
+It also enables us to find representative regions that are crucial in determining the national outcome of a vote.
+We then demonstrate that predicting the actual result of a vote in all regions (in opposition to the binary national outcome) is a much harder task that requires combining data about regions and votes themselves to obtain good performances.
+We compare the use of Bayesian and non-Bayesian models that combine matrix-factorization and regression.
+We show that, here too, combining appropriate models and datasets improves the quality of the predictions, and that Bayesian methods give better estimates of the model's hyperparameters.
+		                 </p>
+	                 </blockquote>
+				</div>
+			</li>
+		</ul>
 		<h3>2014</h3>
 		<ul class="publications-list">
 			<li>
