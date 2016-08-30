@@ -68,28 +68,17 @@ h2:first-child {
 	margin-right: 20px;
 	margin-bottom: 10px;
 	padding: 0;
-	height: 50px;
-}
-
-.press li img {
-	background-color: white;
-	max-height: 50px;
-	max-width: 160px;
-}
-
-ul.new li {
     height: 80px;
     position: relative;
 }
 
-ul.new li img {
+.press li img {
 	background-color: white;
 	height: 80px;
 	width: 80px;
-    max-height: 80px;
 }
 
-ul.new li .overlay {
+ul li .overlay {
     background-color: rgba(0, 0, 0, 0.3);
     position: absolute;
     top: 5px;
@@ -99,7 +88,7 @@ ul.new li .overlay {
     display: none;
 }
 
-ul.new li .overlay a {
+ul li .overlay a {
     display: inline-block;
     width: 100%;
     height: 50%;
@@ -108,7 +97,7 @@ ul.new li .overlay a {
     color: #eeeeee;
 }
 
-ul.new li .overlay a:hover {
+ul li .overlay a:hover {
     background-color: rgba(0, 0, 0, 0.6);
 }
 
