@@ -1,0 +1,60 @@
+body {
+	font-family: 'Source Sans Pro', sans-serif;
+    position: relative;
+}
+
+header {
+	font-family: 'Roboto Slab', serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Roboto Slab', serif;
+	font-weight: bold;
+}
+
+p {
+	text-align: justify;
+}
+
+pre {
+    background-color: #fafafa;
+}
+
+.region-features th:nth-child(n+3), .region-features td:nth-child(n+3) {
+    text-align: right;
+}
+
+.region-features tr.spaced td {
+    border-top-width: 2px;
+}
+
+#quick-nav {
+    margin-top: 20px;
+}
+
+#quick-nav li {
+    padding-left: 5px;
+    border-left: 2px solid white;
+}
+
+#quick-nav li:hover, #quick-nav li.active {
+    border-left: 2px solid #337ab7;
+}
+
+#quick-nav li a {
+    padding: 2px;
+}
+
+#quick-nav li a:hover {
+    background-color: white;
+}
+
+@media (max-width: 970px) {
+    #quick-nav {
+        display: none;
+    }
+
+    .quick-links .btn:not(:first-child) {
+        margin-top: 5px;
+    }
+}
