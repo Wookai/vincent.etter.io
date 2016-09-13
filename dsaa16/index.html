@@ -41,7 +41,7 @@
                         <a href="../publications/etter2016dsaa.pdf" target="_blank" class="btn btn-default btn-block"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Read the paper</a>
                     </div>
                     <div class="col-sm-4">
-                        <a href="" class="btn btn-default btn-block"><i class="fa fa-database" aria-hidden="true"></i> Download the data</a>
+                        <a href="https://github.com/Wookai/online-collaborative-prediction/raw/master/data/data.tar.gz?raw=true" target="__blank" class="btn btn-default btn-block"><i class="fa fa-database" aria-hidden="true"></i> Download the data</a>
                     </div>
                     <div class="col-sm-4">
                         <a href="https://github.com/Wookai/online-collaborative-prediction" target="__blank" class="btn btn-default btn-block"><i class="fa fa-github" aria-hidden="true"></i> Browse the code</a>
@@ -54,7 +54,7 @@
                 </p>
                 <h4>Vote results</h4>
                 <p>
-                    The first file <code>todo.txt</code> contains the outcome of 281 nationwide votes that took place in Switzerland between January 1981 and December 2014.
+                    The first file <code>data/votes-data.mat</code> contains the outcome of 289 nationwide votes that took place in Switzerland between January 1981 and December 2014.
                     For each vote, we record the result (proportion of <em>yes</em>) in every <a href="https://en.wikipedia.org/wiki/Municipalities_of_Switzerland" target="_blank">Swiss municipalities</a> (municipalities are the smallest government division in Switzerland).
                     The raw data can be obtained from the <a href="http://www.bfs.admin.ch/bfs/portal/fr/index/themen/17/03/blank/data/01.html" target="_blank">Swiss Federal Statistical Office</a>.
                 </p>
@@ -63,16 +63,31 @@
                     However, because of administrative fusions and divisions, the regions change over time.
                     To have a complete dataset over the 34 years spanned by the votes, we used a fixed set of regions (the ones exisiting in December 2014) and interpolated the result of regions that did not exist at some point in time.
                     To compute the interpolated result of a region at a given time, we simply kept track all the fusions and divisions, took all regions existing at the time of the vote that have a part in the missing region, and computed the average of their results, weighted by their population.
-                    To have more details about the interpolation procedure, please refer to Section 5.2.1 of <a href="../publications/etter2015thesis.pdf" target="_blank">this thesis</a>.
+                    To have more details about the interpolation procedure, please refer to Section 5.2.1 of <a href="../publications/etter2015phd.pdf" target="_blank">this thesis</a>.
+                </p>
+                <p>
+                    The resulting vote results are stored as a <code>2352x289</code> matrix in <code>data/votes-data.mat</code>.
+                    For some votes, however, the interpolation procedure failed, e.g. when historical data was missing.
+                    When loading the data (see <code>code/utils/load_data.m</code>), we thus discard these votes, resulting in 281 votes for our analysis.
                 </p>
                 <h4>Vote features</h4>
                 <p>
-                    TODO
+                    For each vote, the Swiss political parties emit voting recommendations, such as <code>in favor</code>, <code>against</code>, or <code>no recommendation</code>.
+                    These recommendations can be obtained from the <a href="http://www.bfs.admin.ch/bfs/portal/fr/index/themen/17/03/blank/data/01.html" target="_blank">Swiss Federal Statistical Office</a>.
+                </p>
+                <p>
+                    We gathered recommendations from 25 parties, and stored them in the file <code>data/votes-features.mat</code>. It's a <code>289x26</code> matrix, where the first column contains the ID of the vote, and the rest of the columns the vote recommendations (encoded as <code>-1</code> for <code>against</code>, <code>0</code> for <code>no recommendation</code>, and <code>1</code> for <code>in favor</code>).
+                </p>
+                <p>
+                    Some parties did not exist for all votes (in which case we encode it as <code>0</code>), or always emit the same recommendations. For these reasons, we only keep parties (columns of the votes features matrix) that have a variance larger than 0.5 (see <code>code/utils/load_data.m</code>).
                 </p>
                 <h4>Region features</h4>
                 <p>
                     Each region is characterized by 25 features: location, elevation, demographic attributes, political profile, and languages spoken.
                     The data was obtained directly from the <a href="http://www.bfs.admin.ch/bfs/portal/en/index/regionen/02/daten.html" target="_blank">Swiss Federal Statistical Office</a>.
+                </p>
+                <p>
+                    These features are stored as a <code>2352x25</code> matrix in the file <code>data/regions-features.mat</code>.
                 </p>
                 <p>
                     We summarize below the features and their main statistics.
@@ -118,58 +133,37 @@
                         <tr><td>Speaks Romansh</td><td>0 = No, 1 = Yes</td><td>0</td><td>1</td><td>0.03</td><td>0</td></tr>
                     </tbody>
                 </table>
-
+                <p>
+                    The file <code>data/regions-feature-names.mat</code> contains the name of each feature, relative to its position in <code>data/regions-features.mat</code>.
+                </p>
                 <h3 id="code">Code</h3>
-<p>
-    We consider online predictions of vote results,
-where regions across a country vote on an issue under
-discussion. Such online predictions before and during the day
-of the vote are useful to media agencies, polling institutes,
-and political parties, e.g., to identify regions that are crucial
-in determining the national outcome of a vote. We analyze
-a unique dataset from Switzerland. The dataset contains 281
-votes from 2352 regions over a period of 34 years. We make
-several contributions towards improving online predictions.
-First, we show that these votes exhibit a bi-clustering of the vote
-results, i.e., regions that are spatially close tend to vote similarly,
-and issues that discuss similar topics show similar global
-voting patterns. Second, we develop models that can exploit
-this bi-clustering, as well as the features associated with the
-votes and regions. Third, we show that, when combining vote
-results and features together, Bayesian methods are essential to
-obtaining good performance. Our results show that Bayesian
-methods give better estimates of the hyperparameters than
-non-Bayesian methods such as cross-validation. The resulting
-models generalize well to many different tasks, produce robust
-predictions, and are easily interpretable.
+                <div class="row" style="margin-bottom: 15px;">
+                    <div class="col-sm-offset-4 col-sm-4">
+                        <a href="https://github.com/Wookai/online-collaborative-prediction" target="__blank" class="btn btn-default btn-block"><i class="fa fa-github" aria-hidden="true"></i> Browse the code</a>
+                    </div>
+                </div>
+                <p>
+                    All models are implemented in Matlab (we used version <code>R2014b</code>). We make use of <a href="http://www.gaussianprocess.org/gpml/code/matlab/doc/" target="_blank">GPML</a> and <a href="https://www.cs.ubc.ca/~schmidtm/Software/minFunc.html" target="_blank">minFunc</a> for the Gaussian Process-based models.
+                </p>
+                <p>
+                    To train all the models described in the paper, and then get the performance results on the test set, run <code>code/run.m</code>. It trains each model, saves the resulting model in the <code>models</code> folder, computes the prediciton accuracy on the test votes, and stores the results in the <code>results</code> folder.
+                </p>
+                <p>
+                    To see the implementation of the models, look at the classes in the <code>code/models</code> folder. All models share a common interface, with the following methods:
+                </p>
+                <pre><code class="language-matlab">% Fit the model m to the given training data Y, indicated by the indicator matrix train_idx.
+% The training error (RMSE or negative loglikelihood) is returned, along with the validation
+% RMSE computed on the entries indicated by valid_idx.
+[train_error, valid_rmse] = fit(m, Y, train_idx, valid_idx, options, varargin);
 
-</p>
-<p>
-    We consider online predictions of vote results,
-where regions across a country vote on an issue under
-discussion. Such online predictions before and during the day
-of the vote are useful to media agencies, polling institutes,
-and political parties, e.g., to identify regions that are crucial
-in determining the national outcome of a vote. We analyze
-a unique dataset from Switzerland. The dataset contains 281
-votes from 2352 regions over a period of 34 years. We make
-several contributions towards improving online predictions.
-First, we show that these votes exhibit a bi-clustering of the vote
-results, i.e., regions that are spatially close tend to vote similarly,
-and issues that discuss similar topics show similar global
-voting patterns. Second, we develop models that can exploit
-this bi-clustering, as well as the features associated with the
-votes and regions. Third, we show that, when combining vote
-results and features together, Bayesian methods are essential to
-obtaining good performance. Our results show that Bayesian
-methods give better estimates of the hyperparameters than
-non-Bayesian methods such as cross-validation. The resulting
-models generalize well to many different tasks, produce robust
-predictions, and are easily interpretable.
-
-</p>
+% Predict the elements of y identified by test_idx, when observing
+% the elements identified by obs_idx.
+y_hat = predict(m, y, obs_idx, test_idx, varargin);</code></pre>
+                <p>
+                    The models are named following the paper naming convention. For example, <code>model_mf_gp_r_liniso.m</code> corresponds to the <code>MF + GP(r) (linear)</code> model.
+                </p>
                 <h3 id="contact">Contact</h3>
-                <p>If you have any question about the code, feel free to email <a href="mail:vincent@etter.io">vincent@etter.io</a>.</p>
+                <p>If you have any question about the code or the data, feel free to email <a href="mail:vincent@etter.io">vincent@etter.io</a>.</p>
             </div>
             <div class="col-md-2" id="navbar">
                 <nav id="quick-nav" data-spy="affix" data-offset-top="0" data-offset-bottom="200">
@@ -184,7 +178,7 @@ predictions, and are easily interpretable.
             </div>
         </div>
     </div>
-	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://use.fontawesome.com/bea9bbc6f6.js"></script>
     <script src="prism.js"></script>

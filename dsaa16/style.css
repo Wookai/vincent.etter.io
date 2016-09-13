@@ -1,6 +1,7 @@
 body {
 	font-family: 'Source Sans Pro', sans-serif;
     position: relative;
+	padding-bottom: 40px;
 }
 
 header {
