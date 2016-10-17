@@ -28,13 +28,17 @@
                 <p>
                     If you make use of the code or the data, please cite our paper:
                 </p>
-                <pre><code class="language-bibtex">@inproceedings{etter2016dsaa,
+                <div id="citationCopy">
+                    <a class="btn btn-default btn-sm copy" data-clipboard-target="#citation"><span class="glyphicon glyphicon-copy"></span></a>
+                    <span id="confirmation">Citation copied to clipboard...</span>
+                    <pre><code id="citation" class="language-bibtex">@inproceedings{etter2016dsaa,
 	author = "Etter, Vincent and Khan, Mohammad Emtiyaz and Grossglauser, Matthias and Thiran, Patrick",
 	title = "Online Collaborative Prediction of Regional Vote Results",
 	booktitle = "Proceedings of the 3rd IEEE International Conference on Data Science and Advanced Analytics",
 	series = "DSAA '16",
 	year = "2016",
 }</code></pre>
+                </div>
                 <h3 id="quick-links">Quick links</h3>
                 <div class="row quick-links">
                     <div class="col-sm-4">
@@ -182,7 +186,22 @@ y_hat = predict(m, y, obs_idx, test_idx, varargin);</code></pre>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://use.fontawesome.com/bea9bbc6f6.js"></script>
     <script src="prism.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
 	<script type="text/javascript">
+
+        jQuery(function() {
+            new Clipboard('.copy');
+
+            jQuery('#citationCopy').hover(function() {
+                jQuery('.copy').show();
+            }, function() {
+                jQuery('.copy').hide();
+            });
+
+            jQuery('.copy').click(function() {
+                jQuery('#confirmation').show().delay(1200).fadeOut();
+            });
+        });
 
 		// Google analytics
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

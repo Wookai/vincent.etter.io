@@ -50,6 +50,25 @@ pre {
     background-color: white;
 }
 
+#citationCopy {
+    position: relative;
+}
+
+#citationCopy .copy {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: none;
+}
+
+#confirmation {
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+    color: #bbbbbb;
+    display: none;
+}
+
 @media (max-width: 970px) {
     #quick-nav {
         display: none;
