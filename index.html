@@ -925,6 +925,7 @@ We introduce a flexible neural network architecture for learning embeddings of w
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://use.fontawesome.com/bea9bbc6f6.js"></script>
     <script src="js/prism.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
 	<script type="text/javascript">
 		var headerHeight = -1;
 		var navOffset = 60;
@@ -975,6 +976,26 @@ We introduce a flexible neural network architecture for learning embeddings of w
 			});
 
             $('[data-toggle="tooltip"]').tooltip();
+
+			jQuery('.bibtex').each(function() {
+				jQuery(this).prepend('<a class="btn btn-default btn-sm copy"><span class="glyphicon glyphicon-copy"></span></a><span class="confirmation">Citation copied to clipboard...</span>');
+			});
+
+            new Clipboard('.copy', {
+				target: function(trigger) {
+					return jQuery(trigger).parent().find('code').first().get()[0];
+				}
+			});
+
+            jQuery('.bibtex').hover(function() {
+                jQuery('.copy', this).show();
+            }, function() {
+                jQuery('.copy', this).hide();
+            });
+
+            jQuery('.copy').click(function() {
+                jQuery('.confirmation', jQuery(this).parent()).show().delay(1200).fadeOut();
+            });
 		});
 
 		// close collapse menu on click

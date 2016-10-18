@@ -101,6 +101,25 @@ ul li .overlay a:hover {
     background-color: rgba(0, 0, 0, 0.6);
 }
 
+.bibtex {
+    position: relative;
+}
+
+.bibtex .copy {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: none;
+}
+
+.bibtex .confirmation {
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+    color: #bbbbbb;
+    display: none;
+}
+
 #footer {
 	padding-top: 15px;
 }
