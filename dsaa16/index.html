@@ -51,6 +51,23 @@
                         <a href="https://github.com/Wookai/online-collaborative-prediction" target="__blank" class="btn btn-default btn-block"><i class="fa fa-github" aria-hidden="true"></i> Browse the code</a>
                     </div>
                 </div>
+                <h3 id="summary">Summary</h3>
+                <p>
+                    This paper studies a novel dataset of voting data, containing the outcome of issue votes that took place in Switzerland between 1981 and 2014. The vote results are available at the level of <a href="https://en.wikipedia.org/wiki/Municipalities_of_Switzerland" target="_blank">municipalities</a> (the smallest administrative regions in Switzerland), resulting in fine-grained outcomes for each vote.
+                    On top of these results, the dataset contains metadata about each vote (voting recommendations from politcal parties) and each region (demographic data, location, language, etc.).
+                </p>
+                <p>
+                    We develop predictive models that use the results of a few regions for a new vote, in conjunction with the metadata about the vote and the regions, in order to predict the result of the vote in other unobserved regions.
+                </p>
+                <div class="well">
+
+                    The main findings of the paper are the following:
+                <ul>
+                    <li>we obseve a bi-clustering of vote results, where the outcomes are correlated both across votes and across resgions</li>
+                    <li>we show that combining a matrix-factorization model with regression on vote and region features results in good predictive performances with any number of observed results</li>
+                    <li>we demonstrate that using a Bayesian model is key to properly setting the model's hyperparameters, in order to find the appropriate combination of the different terms</li>
+                </ul>
+                </div>
                 <h3 id="data">Data</h3>
                 <p>
                     The dataset used in this paper has three data files: vote results, vote features, and region features.
@@ -63,7 +80,7 @@
                     The raw data can be obtained from the <a href="http://www.bfs.admin.ch/bfs/portal/fr/index/themen/17/03/blank/data/01.html" target="_blank">Swiss Federal Statistical Office</a>.
                 </p>
                 <p>
-                    In December 2014, there were 2352 municipalities in Switzerland.
+                    In December 2014, there were 2352 regions (municipalities) in Switzerland.
                     However, because of administrative fusions and divisions, the regions change over time.
                     To have a complete dataset over the 34 years spanned by the votes, we used a fixed set of regions (the ones exisiting in December 2014) and interpolated the result of regions that did not exist at some point in time.
                     To compute the interpolated result of a region at a given time, we simply kept track all the fusions and divisions, took all regions existing at the time of the vote that have a part in the missing region, and computed the average of their results, weighted by their population.
@@ -73,6 +90,9 @@
                     The resulting vote results are stored as a <code>2352x289</code> matrix in <code>data/votes-data.mat</code>.
                     For some votes, however, the interpolation procedure failed, e.g. when historical data was missing.
                     When loading the data (see <code>code/utils/load_data.m</code>), we thus discard these votes, resulting in 281 votes for our analysis.
+                </p>
+                <p>
+                    The outcome of individual votes can be easily visualized on <a href="http://www.predikon.ch" target="_blank">www.predikon.ch</a>.
                 </p>
                 <h4>Vote features</h4>
                 <p>
@@ -174,6 +194,7 @@ y_hat = predict(m, y, obs_idx, test_idx, varargin);</code></pre>
                     <ul class="nav">
                         <li><a href="#home" class="active">Home</a></li>
                         <li><a href="#quick-links">Quick links</a></li>
+                        <li><a href="#summary">Summary</a></li>
                         <li><a href="#data">Data</a></li>
                         <li><a href="#code">Code</a></li>
                         <li><a href="#contact">Contact</a></li>
